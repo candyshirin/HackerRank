@@ -1,0 +1,71 @@
+Given a matrix of size N x M, print transpose of the matrix.
+
+Input Format
+
+First line of input contains N, M - the size of the matrix. Its followed by N lines each containing M integers - elements of the matrix.
+
+Constraints
+
+1 <= N, M <= 100
+-109 <= ar[i] <= 109
+
+Output Format
+
+Print the transposed of the given matrix.
+
+Sample Input 0
+
+2 2
+5 -1
+19 8
+Sample Output 0
+
+5 19
+-1 8
+
+
+PROGRAM :
+
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int m = sc.nextInt();
+      if(n<1 && m>101){
+          System.out.println("Invalid");
+          return;
+      }
+    int[][] matrix = new int[n][m];
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        matrix[i][j] = sc.nextInt();
+         if(matrix[i][j]<1000000000 && matrix[i][j]>1000000000){
+             System.out.println("invalid");
+             return;
+         }
+      }
+    }
+    int[][] transposed = transpose(matrix);
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        System.out.print(transposed[i][j]+" ");
+      }
+      System.out.println();
+    }
+  }
+
+  public static int[][] transpose(int[][] matrix) {
+    int n = matrix.length;
+    int m = matrix[0].length;
+    int[][] result = new int[m][n];
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        result[j][i] = matrix[i][j];
+      }
+    }
+    return result;
+  }
+}
