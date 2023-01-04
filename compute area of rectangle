@@ -1,0 +1,40 @@
+Given the length and breadth of a rectangle, print area of the rectangle.
+
+Input Format
+
+First and only line of input contains two positive integers L - length of the rectangle and B - breadth of the rectangle.
+
+Constraints
+
+1 <= L, B <=109
+
+Output Format
+
+Print area of the given rectangle.
+
+Sample Input 0
+
+5 8
+Sample Output 0
+
+40
+
+PROGRAM :
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        long l=sc.nextInt();
+        long b=sc.nextInt();
+        if(l<1 && b<1000000000){
+            return;
+        }
+        //double sum = l*b;
+        System.out.println(l*b);
+    }
+}
