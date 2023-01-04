@@ -1,0 +1,40 @@
+Given a non-negative integer - N, print the sum of digits of the given number.
+
+Input Format
+
+First and only line of input contains a non-negative integer N.
+
+Constraints
+
+0 <= length(N) <= 1000
+
+Output Format
+
+Print the sum of digits of the given number.
+
+Sample Input 0
+
+164
+Sample Output 0
+
+11
+
+PROGRAM :
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int addition = 0;
+        int modulo = 0;
+        while (number != 0) {
+            modulo = number % 10;
+            addition += modulo;
+            number /= 10;
+        }
+        System.out.println(addition);
+    }
+}
+
