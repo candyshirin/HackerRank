@@ -1,0 +1,43 @@
+Given the length of 3 sides of a triangle, check whether the triangle is valid or not.
+
+Input Format
+
+First and only line of input contains three integers A, B, C - length of sides of the triangle.
+
+Constraints
+
+1 <= A, B, C <= 109
+
+Output Format
+
+Print "Yes" if you can construct a triangle with the given three sides, "No" otherwise.
+
+Sample Input 0
+
+4 3 5
+Sample Output 0
+
+Yes
+
+PROGRAM :
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+
+    // Read in the lengths of the three sides of the triangle
+    long a = scan.nextLong();
+    long b = scan.nextLong();
+    long c = scan.nextLong();
+
+    // Check if the triangle is valid using the triangle inequality theorem
+    if (a + b > c && a + c > b && b + c > a && a>=1 && b>=1 && c>=1 && a<=1000000000 && b<=1000000000 && c<=1000000000) {
+      System.out.println("Yes");
+    } else {
+        //return;
+      System.out.println("No");
+    }
+  }
+}
