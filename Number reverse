@@ -28,17 +28,31 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     long n = scanner.nextLong();
 
-    // Convert the number to a string
-    String s = Long.toString(n);
-
-    // Reverse the string
-    String reversed = "";
-    for (int i = s.length() - 1; i >= 0; i--) {
-      reversed += s.charAt(i);
+    boolean isNegative = false;
+    if (n < 0) {
+      isNegative = true;
+      n = -n;
     }
 
-    // Convert the reversed string back to a number
-    long reversedNumber = Long.parseLong(reversed);
-    System.out.println(reversedNumber);
+    long reversed = reverse(n);
+    if (isNegative) {
+      reversed = -reversed;
+    }
+
+    System.out.println(reversed);
+  }
+
+  public static long reverse(long n) {
+    if (n < 10) {
+      return n;
+    }
+    long reversed = 0;
+    while (n > 0) {
+      reversed = reversed * 10 + n % 10;
+      n /= 10;
+    }
+    return reversed;
   }
 }
+
+
