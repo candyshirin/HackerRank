@@ -1,0 +1,44 @@
+Given a number N, reverse the number.
+
+Input Format
+
+First and only line of input contains a integer - N.
+
+Constraints
+
+-1018 <= N <= 1018
+
+Output Format
+
+Print the reversed number.
+
+Sample Input 0
+
+1344
+Sample Output 0
+
+4431
+
+PROGRAM :
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    long n = scanner.nextLong();
+
+    // Convert the number to a string
+    String s = Long.toString(n);
+
+    // Reverse the string
+    String reversed = "";
+    for (int i = s.length() - 1; i >= 0; i--) {
+      reversed += s.charAt(i);
+    }
+
+    // Convert the reversed string back to a number
+    long reversedNumber = Long.parseLong(reversed);
+    System.out.println(reversedNumber);
+  }
+}
