@@ -1,0 +1,53 @@
+Ben and Henry visited a Kids Carnival and were excited to see so many interesting arcades for kids’ entertainment.
+                                                                                                                                                        
+There was an Activity Zone wherein kids could participate in numerous thought provoking activities. Ben and Henry selected the Counting Puzzle Game that involved English alphabets, wherein they were given a string to play with.
+                                                                                                                                                        
+The objective of the Game is to find the number of unique substrings of length 'n' in the given string.
+For example,
+Consider the sample string s = "abca" and length n = 3
+Substrings are {"a", "ab", "abc", "abca", "b", "bc", "bca", "c", "ca", "a"}
+Substrings of length 3 are {"abc", "bca"} - both substrings are unique. So result is 2.
+
+Write a program to help the kids win the game.
+ 
+Input Format:
+The first line of the input is the given string. Assume that the maximum length of the string as 50.
+The second line of the input consists of an integer, n.
+ 
+Output Format:
+Output should display an integer that gives the number of unique substrings of length 'n' in the given string.
+Refer sample input and output for formatting specifications.
+ 
+Sample Input 1:
+aaabbcaaa
+3
+Sample Output 1:
+6
+ 
+Sample Input 2:
+aaaa
+1
+Sample Output 2:
+1    
+
+PROGRAM :
+
+import java.util.*;
+import java.util.HashSet;
+
+public class Main
+{
+	public static void main(String[] args) {
+		//ystem.out.println("Hello World");
+		Scanner sc = new Scanner(System.in);
+		String a=sc.nextLine();
+		int b=sc.nextInt();
+		HashSet <String> set = new HashSet <String>();
+		
+		for(int i=0;i<=a.length()-b;i++){
+		    String substring =a.substring(i,i+b);
+		    set.add(substring);
+		}
+		System.out.println(set.size());
+	}
+}
