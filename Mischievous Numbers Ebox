@@ -1,0 +1,73 @@
+
+
+Yogi loves numbers and Jeeva made up his mind to gift Yogi a set of special numbers called Mischievous Numbers in the range L to R, where L refers to the lower limit and R refers to the upper limit of the number. A number X is called a Mischievous Number if the number of distinct prime factors of X is equal to the number of digits in its decimal representation. The number 1 is considered as a mischievous number.
+ 
+Given L and R, help Jeeva to find the number of mischievous numbers between L and R both inclusive.
+ 
+For example,
+Consider L = 55 and R = 59.
+ 
+Numbers 55, 56, 57 and 59 are mischievous numbers as
+--> 55 have two distinct prime factors 5 and 11.
+--> 56 have two distinct prime factors 2 and 7.
+--> 57 have two distinct prime factors 3 and 19.
+--> 58 have two distinct prime factors 2 and 29.
+All these numbers are two digit numbers.
+ 
+Hence the mischievous numbers in the range [55, 59] = 4.
+ 
+Input Format:
+The first line of the input contains 2 integers L and R, which corresponds to the lower limit and upper limit of the range of the mischievous numbers.
+ 
+Output:
+Output the number of mischievous numbers between L and R in a single line separated by spaces.
+Refer sample input and output for formatting specifications.
+ 
+Sample Input 1:
+55 59
+Sample Output 1:
+4
+ 
+Sample Input 2:
+1 10
+Sample Output 2:
+9               
+
+PROGRAM :
+
+import java.util.Set;
+import java.util.HashSet;
+
+public class MischievousNumbers {
+    public static void main(String[] args) {
+        int L = 55, R = 59;
+        
+        int count = 0;
+        for (int i = L; i <= R; i++) {
+            if (isMischievous(i)) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+    public static boolean isMischievous(int num) {
+        Set<Integer> primeFactors = new HashSet<>();
+        for (int i = 2; i <= num; i++) {
+            if (num % i == 0) {
+                boolean isPrime = true;
+                for (int j = 2; j <= i/2; j++) {
+                    if (i % j == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    primeFactors.add(i);
+                }
+            }
+        }
+        int numDigits = Integer.toString(num).length();
+        return primeFactors.size() == numDigits;
+    }
+}
